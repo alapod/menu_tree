@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+    {% for item in menu_items %}
+        {% if item == object %}
+            <li> {{ object }}
+            <ul>
+            {% for child in children %}
+                <li> {{ child.name }} </li>
+            {% endfor %}
+            </ul>
+        {% elif item not in children %}
+            <li> {{ item }} </li>
+        {% endif %}
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
