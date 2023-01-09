@@ -5,17 +5,18 @@
     <title>Title</title>
 </head>
 <body>
+    {%  url 'index' %}
     <ul>
     {% for item in menu_items %}
         {% if item == object %}
-            <li> <a href={{ object.slug }} >{{ object.slug }}</a></li>
+            <li> <a href={% url 'index' %}{{ object.slug }} >{{ object.slug }}</a></li>
             <ul>
             {% for child in children %}
-                <li> <a href={{ child.slug }} >{{ child.slug }}</a></li>
+                <li> <a href={% url 'index' %}{{ child.slug }} >{{ child.slug }}</a></li>
             {% endfor %}
             </ul>
         {% elif item not in children %}
-            <li> <a href={{ item.slug }}>{{ item.slug }}</a></li>
+            <li> <a href={% url 'index' %}{{ item.slug }}>{{ item.slug }}</a></li>
         {% endif %}
         {% endfor %}
 
